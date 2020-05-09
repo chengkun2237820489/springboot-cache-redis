@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.chengkun.cloud.mapper.UserMapper">
+    <select id="queryUserList" resultType="SysUser">
+        SELECT * FROM sys_user
+    </select>
+
+    <select id="findUserById" resultType="SysUser" parameterType="java.lang.Integer">
+       SELECT * FROM sys_user WHERE id = #{id}
+    </select>
+
+    <update id="updateUser" parameterType="SysUser">
+        update sys_user set name=#{name},age=#{age} where id=#{id}
+    </update>
+
+    <insert id="saveUser" parameterType="SysUser">
+        insert into sys_user set name=#{name},age=#{age}
+    </insert>
+
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        DELETE FROM sys_user WHERE id=#{id}
+    </delete>
+</mapper>
